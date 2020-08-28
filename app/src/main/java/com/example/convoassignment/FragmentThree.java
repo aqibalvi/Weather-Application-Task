@@ -89,7 +89,7 @@ public class FragmentThree extends Fragment {
         filteredList = new ArrayList<WeatherDataModel>();
 
 
-        //Reading all data from my sqllite database
+        //Reading all data from database
 
         weatherList = dbHelper.readAllData();
 

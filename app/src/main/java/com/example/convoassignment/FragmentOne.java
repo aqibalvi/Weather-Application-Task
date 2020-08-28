@@ -61,6 +61,7 @@ public class FragmentOne extends Fragment {
 
         weatherList = dbHelper.readAllData();
         filteredList = new ArrayList<WeatherDataModel>();
+
         for(int i = 0; i < weatherList.size(); i++)
         {
             if(weatherList.get(i).getDayIndex() == 0)
@@ -69,9 +70,11 @@ public class FragmentOne extends Fragment {
             }
         }
         rv_adapter = new CustomAdapter((ArrayList<WeatherDataModel>) filteredList);
+        rv_adapter.notifyDataSetChanged();
         layoutManager = new LinearLayoutManager(getContext());
         rv.setLayoutManager(layoutManager);
         rv.setAdapter(rv_adapter);
+
         return v;
     }
 

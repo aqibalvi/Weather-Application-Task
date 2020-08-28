@@ -83,35 +83,179 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         hum_tv.setText("Humidity: " + weatherDataSet.get(listPosition).getHumidity() + "%");
         time_tv.setText(weatherDataSet.get(listPosition).getTime());
 
+        String final_time = weatherDataSet.get(listPosition).getTime();
         String checkTimeSplit[] = weatherDataSet.get(listPosition).getTime().split("\\s+");
         String checkTimeAMPM = checkTimeSplit[1];
 
         String checkTimeSplitDigit[] = checkTimeSplit[0].split(":");
 
-        Log.e(" Check DIGIT TIME", checkTimeSplitDigit[0]);
-        String checkDigit = checkTimeSplitDigit[0];
+        int checkDigit = Integer.valueOf(checkTimeSplitDigit[0]);
+
+        Log.e("Value of checkDigit", String.valueOf(checkDigit));
+
+        Log.e("Final Value of time", final_time);
+
 
 
         //Show the icon on cardview according to the weather status description
 
         if(weatherDataSet.get(listPosition).getDescription().equals("Rain"))
         {
+            switch (final_time) {
+                case "12:00 am":
+                    holder.bg.setBackgroundResource(R.drawable.rainybg);
+                    holder.w_iv.setImageResource(R.drawable.nightrain);
+                    System.out.println("Monday");
+                    break;
+                case "03:00 am":
+                    holder.bg.setBackgroundResource(R.drawable.rainybg);
+                    holder.w_iv.setImageResource(R.drawable.nightrain);
+                    System.out.println("Tuesday");
+                    break;
+                case "09:00 pm":
+                    holder.bg.setBackgroundResource(R.drawable.rainybg);
+                    holder.w_iv.setImageResource(R.drawable.nightrain);
+                    System.out.println("Wednesday");
+                    break;
+                case "06:00 am":
+                    holder.bg.setBackgroundResource(R.drawable.rainybg);
+                    holder.w_iv.setImageResource(R.drawable.rain);
+                    System.out.println("Thursday");
+                    break;
+                case "03:00 pm":
+                    holder.bg.setBackgroundResource(R.drawable.rainybg);
+                    holder.w_iv.setImageResource(R.drawable.rain);
+                    System.out.println("Friday");
+                    break;
+                case "12:00 pm":
+                    holder.bg.setBackgroundResource(R.drawable.rainybg);
+                    holder.w_iv.setImageResource(R.drawable.rain);
+                    System.out.println("Saturday");
+                    break;
+                case "09:00 am":
+                    holder.bg.setBackgroundResource(R.drawable.rainybg);
+                    holder.w_iv.setImageResource(R.drawable.rain);
+
+                    break;
+                case "06:00 pm":
+                    holder.bg.setBackgroundResource(R.drawable.rainybg);
+                    holder.w_iv.setImageResource(R.drawable.rain);
+                    System.out.println("Evening");
+                    break;
+            }
 //            Log.e("Index in Fragment", String.valueOf(weatherDataSet.get(listPosition).getDayIndex()));
 
-            holder.bg.setBackgroundResource(R.drawable.rainybg);
-            holder.w_iv.setImageResource(R.drawable.rain);
+
         }
+//        if(weatherDataSet.get(listPosition).getDescription().equals("Rain") && ((weatherDataSet.get(listPosition).getTime().equals("12:00 am"))  || (checkDigit < 06 && checkTimeAMPM.equals("am")) || (checkDigit > 06 && checkTimeAMPM.equals("pm"))))
+//        {
+//
+//
+//        }
         else if(weatherDataSet.get(listPosition).getDescription().equals("Clouds"))
         {
+            switch (final_time)
+            {
+                case "12:00 am":
+                    holder.bg.setBackgroundResource(R.drawable.cloudynightbg);
+                    holder.w_iv.setImageResource(R.drawable.cloudynight);
+                    System.out.println("Monday");
+                    break;
+                case "03:00 am":
+                    holder.bg.setBackgroundResource(R.drawable.cloudynightbg);
+                    holder.w_iv.setImageResource(R.drawable.cloudynight);
+                    System.out.println("Tuesday");
+                    break;
+                case "09:00 pm":
+                    holder.bg.setBackgroundResource(R.drawable.cloudynightbg);
+                    holder.w_iv.setImageResource(R.drawable.cloudynight);
+                    System.out.println("Wednesday");
+                    break;
+                case "06:00 am":
+                    holder.bg.setBackgroundResource(R.drawable.cardbg);
+                    holder.w_iv.setImageResource(R.drawable.cloudy);
+                    System.out.println("Thursday");
+                    break;
+                case "03:00 pm":
+                    holder.bg.setBackgroundResource(R.drawable.cardbg);
+                    holder.w_iv.setImageResource(R.drawable.cloudy);
+                    System.out.println("Friday");
+                    break;
+                case "12:00 pm":
+                    holder.bg.setBackgroundResource(R.drawable.cardbg);
+                    holder.w_iv.setImageResource(R.drawable.cloudy);
+                    System.out.println("Saturday");
+                    break;
+                case "09:00 am":
+                    holder.bg.setBackgroundResource(R.drawable.cardbg);
+                    holder.w_iv.setImageResource(R.drawable.cloudy);
+
+                    break;
+                case "06:00 pm":
+                    holder.bg.setBackgroundResource(R.drawable.cardbg);
+                    holder.w_iv.setImageResource(R.drawable.cloudy);
+                    System.out.println("Evening");
+                    break;
 //            Log.e("Index in Fragment", String.valueOf(weatherDataSet.get(listPosition).getDayIndex()));
-            holder.bg.setBackgroundResource(R.drawable.cardbg);
-            holder.w_iv.setImageResource(R.drawable.cloudy);
+            }
+
         }
+
+//        if(weatherDataSet.get(listPosition).getDescription().equals("Clouds") && ((weatherDataSet.get(listPosition).getTime().equals("12:00 am")) || (checkDigit < 06 && checkTimeAMPM.equals("am")) || (checkDigit > 06 && checkTimeAMPM.equals("pm"))))
+//        {
+////            Log.e("Index in Fragment", String.valueOf(weatherDataSet.get(listPosition).getDayIndex()));
+//            holder.bg.setBackgroundResource(R.drawable.nightybg);
+//            holder.w_iv.setImageResource(R.drawable.cloudy);
+//        }
 
         else if(weatherDataSet.get(listPosition).getDescription().equals("Clear"))
         {
-            holder.bg.setBackgroundResource(R.drawable.sunnybg);
-            holder.w_iv.setImageResource(R.drawable.sun);
+            switch (final_time)
+            {
+                case "12:00 am":
+                    holder.bg.setBackgroundResource(R.drawable.nightybg);
+                    holder.w_iv.setImageResource(R.drawable.moon);
+                    System.out.println("Monday");
+                    break;
+                case "03:00 am":
+                    holder.bg.setBackgroundResource(R.drawable.nightybg);
+                    holder.w_iv.setImageResource(R.drawable.moon);
+                    System.out.println("Tuesday");
+                    break;
+                case "09:00 pm":
+                    holder.bg.setBackgroundResource(R.drawable.nightybg);
+                    holder.w_iv.setImageResource(R.drawable.moon);
+                    System.out.println("Wednesday");
+                    break;
+                case "06:00 am":
+                    holder.bg.setBackgroundResource(R.drawable.sunnybg);
+                    holder.w_iv.setImageResource(R.drawable.sun);
+                    System.out.println("Thursday");
+                    break;
+                case "03:00 pm":
+                    holder.bg.setBackgroundResource(R.drawable.sunnybg);
+                    holder.w_iv.setImageResource(R.drawable.sun);
+                    System.out.println("Friday");
+                    break;
+                case "12:00 pm":
+                    holder.bg.setBackgroundResource(R.drawable.sunnybg);
+                    holder.w_iv.setImageResource(R.drawable.sun);
+                    System.out.println("Saturday");
+                    break;
+                case "09:00 am":
+                    holder.bg.setBackgroundResource(R.drawable.sunnybg);
+                    holder.w_iv.setImageResource(R.drawable.sun);
+
+                    break;
+                case "06:00 pm":
+                    holder.bg.setBackgroundResource(R.drawable.sunnybg);
+                    holder.w_iv.setImageResource(R.drawable.sun);
+                    System.out.println("Evening");
+                    break;
+//            Log.e("Index in Fragment", String.valueOf(weatherDataSet.get(listPosition).getDayIndex()));
+            }
+//            holder.bg.setBackgroundResource(R.drawable.sunnybg);
+//            holder.w_iv.setImageResource(R.drawable.sun);
         }
     }
 

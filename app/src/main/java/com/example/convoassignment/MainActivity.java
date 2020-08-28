@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,12 +35,14 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private TabLayout tl;
     private ViewPager vp;
     private ViewPagerAdapter vpAdapter;
+
 
     private NetworkRequestVolley requestObj;
 
@@ -57,9 +60,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        requestObj = NetworkRequestVolley.getInstance(this);
-        requestObj.getApiData();
 
 
         //initializing tablayout and viewpager
@@ -80,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setElevation(0);
+
+        requestObj = NetworkRequestVolley.getInstance(this);
+        requestObj.getApiData();
 
 
 
