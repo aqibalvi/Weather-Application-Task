@@ -8,7 +8,7 @@ A task given by Convo Technologies to build a weather application in Android.
 
 An evaluation assessment given by Convo Technologies to build a weather forecast application. User can see the weather forecast of coming 5 days including the present day.
 Each day has its own screen and contains weather forecast of 3 hours interval for that particular day. Application will ask for the system's location permission if first 
-time user installing the app.
+time user installing the app. First time data will be fetched directly through API which will take 1-2 seconds to load the request (Recommended: switch to other fragments meanwhile). The first time fetched data will immediately save in SQLite Databse within the device, this will help in fetching new data next time and not to wait for the API request. The new data will be updated in database and fetched from SQLite every next time.
 
 
 ## Getting Started
